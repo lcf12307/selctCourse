@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="stucourse@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="stucourse">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="tb_course">
+      <Comment>课程表</Comment>
+    </table>
+    <table id="8" parent="2" name="tb_dept">
+      <Comment>院系表</Comment>
+    </table>
+    <table id="9" parent="2" name="tb_major">
+      <Comment>专业表</Comment>
+    </table>
+    <table id="10" parent="2" name="tb_manager">
+      <Comment>管理员表</Comment>
+    </table>
+    <table id="11" parent="2" name="tb_stu">
+      <Comment>学生表</Comment>
+    </table>
+    <table id="12" parent="2" name="tb_stucourse">
+      <Comment>课程表</Comment>
+    </table>
+    <table id="13" parent="2" name="tb_teach">
+      <Comment>授课表</Comment>
+    </table>
+    <table id="14" parent="2" name="tb_teacher">
+      <Comment>教师表</Comment>
+    </table>
+    <column id="15" parent="7" name="course_id">
+      <Position>1</Position>
+      <Comment>课程号</Comment>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="7" name="course_name">
+      <Position>2</Position>
+      <Comment>课程名</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="7" name="course_time">
+      <Position>3</Position>
+      <Comment>学时</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="7" name="course_credit">
+      <Position>4</Position>
+      <Comment>学分</Comment>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="19" parent="7" name="PRIMARY">
+      <ColNames>course_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="20" parent="8" name="dept_id">
+      <Position>1</Position>
+      <Comment>系号码</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="8" name="dept_name">
+      <Position>2</Position>
+      <Comment>系名称</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="8" name="dept_introduce">
+      <Position>3</Position>
+      <Comment>系介绍</Comment>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="23" parent="8" name="PRIMARY">
+      <ColNames>dept_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="9" name="major_id">
+      <Position>1</Position>
+      <Comment>专业号</Comment>
+      <DataType>char(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="9" name="dept_id">
+      <Position>2</Position>
+      <Comment>系号码</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="9" name="major_name">
+      <Position>3</Position>
+      <Comment>专业名</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="9" name="major_introduce">
+      <Position>4</Position>
+      <Comment>专业介绍</Comment>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="28" parent="9" name="dept_id">
+      <ColNames>dept_id</ColNames>
+    </index>
+    <key id="29" parent="9" name="PRIMARY">
+      <ColNames>major_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="9" name="tb_major_ibfk_1">
+      <ColNames>dept_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_dept</RefTableName>
+      <RefColNames>dept_id</RefColNames>
+    </foreign-key>
+    <column id="31" parent="10" name="manager_id">
+      <Position>1</Position>
+      <Comment>管理员工号</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="10" name="manager_name">
+      <Position>2</Position>
+      <Comment>管理员姓名</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="10" name="manager_sex">
+      <Position>3</Position>
+      <Comment>管理员性别</Comment>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="34" parent="10" name="PRIMARY">
+      <ColNames>manager_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="11" name="stu_id">
+      <Position>1</Position>
+      <Comment>学号</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="11" name="stu_name">
+      <Position>2</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="stu_sex">
+      <Position>3</Position>
+      <Comment>性别</Comment>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="11" name="major_id">
+      <Position>4</Position>
+      <Comment>专业号码</Comment>
+      <DataType>char(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="11" name="stu_authority">
+      <Position>5</Position>
+      <Comment>默认选课权限</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="40" parent="11" name="major_id">
+      <ColNames>major_id</ColNames>
+    </index>
+    <key id="41" parent="11" name="PRIMARY">
+      <ColNames>stu_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="42" parent="11" name="tb_stu_ibfk_1">
+      <ColNames>major_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_major</RefTableName>
+      <RefColNames>major_id</RefColNames>
+    </foreign-key>
+    <column id="43" parent="12" name="stu_id">
+      <Position>1</Position>
+      <Comment>学号</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="12" name="course_id">
+      <Position>2</Position>
+      <Comment>课程号</Comment>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="12" name="teacher_id">
+      <Position>3</Position>
+      <Comment>教师工号</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="12" name="stucourse_grade">
+      <Position>4</Position>
+      <Comment>课程成绩</Comment>
+      <DataType>float|0</DataType>
+    </column>
+    <index id="47" parent="12" name="course_id">
+      <ColNames>course_id</ColNames>
+    </index>
+    <key id="48" parent="12" name="PRIMARY">
+      <ColNames>stu_id
+course_id
+teacher_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="12" name="tb_stucourse_ibfk_1">
+      <ColNames>stu_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_stu</RefTableName>
+      <RefColNames>stu_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="50" parent="12" name="tb_stucourse_ibfk_2">
+      <ColNames>course_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_course</RefTableName>
+      <RefColNames>course_id</RefColNames>
+    </foreign-key>
+    <column id="51" parent="13" name="teacher_id">
+      <Position>1</Position>
+      <Comment>教师工号</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="13" name="course_id">
+      <Position>2</Position>
+      <Comment>课程号</Comment>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="13" name="course_id">
+      <ColNames>course_id</ColNames>
+    </index>
+    <key id="54" parent="13" name="PRIMARY">
+      <ColNames>teacher_id
+course_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="13" name="tb_teach_ibfk_1">
+      <ColNames>teacher_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_teacher</RefTableName>
+      <RefColNames>teacher_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="56" parent="13" name="tb_teach_ibfk_2">
+      <ColNames>course_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_course</RefTableName>
+      <RefColNames>course_id</RefColNames>
+    </foreign-key>
+    <column id="57" parent="14" name="teacher_id">
+      <Position>1</Position>
+      <Comment>教师工号</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="14" name="teacher_name">
+      <Position>2</Position>
+      <Comment>教师姓名</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="14" name="teacher_sex">
+      <Position>3</Position>
+      <Comment>性别</Comment>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="14" name="teacher_ranks">
+      <Position>4</Position>
+      <Comment>职称</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="14" name="teacher_authority">
+      <Position>5</Position>
+      <Comment>成绩提交权限</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="14" name="dept_id">
+      <Position>6</Position>
+      <Comment>系号码</Comment>
+      <DataType>char(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="63" parent="14" name="dept_id">
+      <ColNames>dept_id</ColNames>
+    </index>
+    <key id="64" parent="14" name="PRIMARY">
+      <ColNames>teacher_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="65" parent="14" name="tb_teacher_ibfk_1">
+      <ColNames>dept_id</ColNames>
+      <RefSchemaName>stucourse</RefSchemaName>
+      <RefTableName>tb_dept</RefTableName>
+      <RefColNames>dept_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

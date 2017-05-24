@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phoenix.dao.CourseDao">
+
+    <!-- 通过ID查询课程 -->
+    <select id="queryCourseById" parameterType="String" resultType="Course">
+        SELECT *
+        FROM tb_course
+        WHERE course_id = #{courseId};
+    </select>
+
+    <!-- 插入课程 -->
+    <insert id="insertCourse" parameterType="Course">
+        INSERT INTO tb_course(course_id, course_name, course_time, course_credit)
+        VALUE (#{course.courseId}, #{course.courseName}, #{course.courseTime}, #{course.courseCredit});
+    </insert>
+    
+    <!-- 通过id删除课程 -->
+    <delete id="deleteCourseById" parameterType="String">
+        DELETE FROM tb_course WHERE course_id = #{courseId};
+    </delete>
+
+    <!-- 查询全部课程 -->
+    <select id="queryAllCourses" resultType="Course">
+        SELECT * FROM tb_course;
+    </select>
+</mapper>

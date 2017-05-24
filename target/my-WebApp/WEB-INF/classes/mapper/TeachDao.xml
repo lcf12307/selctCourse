@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phoenix.dao.TeachDao">
+
+    <!-- 通过教师id查询开课信息 -->
+    <select id="queryTeachByTeacherId" resultType="Teach">
+        SELECT * FROM tb_teach WHERE teacher_id = #{teahcerId};
+    </select>
+
+    <!-- 增加开课信息 -->
+    <insert id="insertTeachCourse">
+        INSERT INTO tb_teach(teacher_id, course_id)
+        VALUE (#{teacherId}, #{courseId});
+    </insert>
+
+    <!-- 删除开课信息 -->
+    <delete id="deleteTeachCourse">
+        DELETE * FROM tb_teach WHERE teacher_id = #{teacherId} AND courese_id = #{courseId};
+    </delete>
+    
+    <!-- 查询全部授课信息 -->
+    <select id="queryAllTeachInfo" resultType="Teach">
+        SELECT * FROM tb_teach;
+    </select>
+
+    <delete id="deleteByCourseId">
+        DELETE FROM tb_teach WHERE course_id = #{courseId};
+    </delete>
+
+    <delete id="deleteByTeacherId">
+        DELETE FROM tb_teach WHERE teacher_id = #{teacherId};
+    </delete>
+
+</mapper>

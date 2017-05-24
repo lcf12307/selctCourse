@@ -1,0 +1,22 @@
+#main{
+    background-color: #1ABC9C;
+    overflow: hidden;
+    margin-top:90px;
+}
+
+#login-view{
+    float: right;
+    height: 521px;
+    overflow: hidden;
+    position: relative;
+    width: 1121px;
+}
+
+.cover{
+    height: 320px;
+    position: absolute;
+    right: 180px;
+    top: 86px;
+    width: 360px;
+    z-index: 99;
+}

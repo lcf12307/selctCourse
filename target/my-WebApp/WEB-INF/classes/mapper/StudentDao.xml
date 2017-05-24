@@ -1,0 +1,34 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phoenix.dao.StudentDao">
+    <!-- 为Dao提供sql语句 -->
+    <select id="queryById" resultType="Student" parameterType="String">
+      SELECT *
+      FROM tb_stu
+      WHERE stu_id = #{stuId};
+    </select>
+
+    <insert id="insertStudent" parameterType="Student">
+        INSERT INTO tb_stu(stu_id, stu_name, stu_sex, major_id)
+        VALUE(#{student.stuId}, #{student.stuName}, #{student.stuSex}, #{student.majorId});
+    </insert>
+
+    <delete id="deleteStudentById" parameterType="String">
+        DELETE FROM tb_stu WHERE stu_id = #{stuId};
+    </delete>
+
+    <update id="updateStudentAuthority">
+        UPDATE tb_stu SET stu_authority = #{stuAuthority}
+        WHERE stu_id = #{stuId};
+    </update>
+
+    <!-- 查询全部学生 -->
+    <select id="queryAllStudent" resultType="Student">
+        SELECT * FROM tb_stu;
+    </select>
+
+    <update id="updateAllAuthority">
+        UPDATE tb_stu SET stu_authority = #{stuAuthority};
+    </update>
+</mapper>
